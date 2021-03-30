@@ -1,0 +1,23 @@
+.on {
+  background-color: black;
+}
+.off.dead {
+  background: red;
+}
+
+.on.dead {
+  transition: none;
+  background: rgb(82, 0, 0);
+}
+
+.off {
+  transition: background-color 0.3s ease-in-out;
+  background-color: white;
+}
+
+.off,
+.on {
+  width: 25%;
+  border: 2px solid grey;
+  z-index: 10;
+}
