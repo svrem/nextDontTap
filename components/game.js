@@ -10,6 +10,8 @@ const game = ({
   setPercentage,
   dead,
   setDead,
+  ready,
+  setReady,
 }) => {
   const randomBoard = (startingPieces) => {
     let newBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -30,7 +32,6 @@ const game = ({
   const deadPause = 2.5;
   // ==========================
 
-  const [ready, setReady] = useState(false);
   // const [dead, setDead] = useState(false);
   const [board, setBoard] = useState([
     0,
@@ -56,7 +57,7 @@ const game = ({
       const reducePercentage = setInterval(() => {
         if (!dead) {
           setPercentage(percentage - percentageReduction);
-          if (percentage < percentageReduction) {
+          if (percentage < 1) {
             setTimeout(() => {
               setDead(true);
             }, speed);
@@ -97,11 +98,13 @@ const game = ({
           newTile = Math.floor(Math.random() * 16);
         } while (newBoard[newTile]);
 
-        newBoard[newTile] = true;
+        newBoard[newTile] = 1;
 
-        newBoard[index] = !newBoard[index];
+        newBoard[index] = 0;
 
-        setScore(score + 1);
+        const newScore = score + (percentage > 99 ? 2 : 1);
+
+        setScore(newScore);
 
         setReady(true);
 

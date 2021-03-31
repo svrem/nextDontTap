@@ -1,13 +1,13 @@
 import styles from "../styles/livebar.module.css";
-import { useEffect } from "react";
 
-const liveBar = ({ percentage, dead }) => {
+const liveBar = ({ percentage, dead, ready }) => {
   return (
     <div className={styles.outer}>
       <div
         style={{
           width: `${percentage}%`,
-          backgroundColor: dead ? "red" : "lightBlue",
+          backgroundColor:
+            percentage === 100 && ready ? "gold" : dead ? "red" : "lightBlue",
         }}
         className={styles.inner}
       ></div>
