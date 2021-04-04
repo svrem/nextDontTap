@@ -5,20 +5,22 @@ import { useRef } from "react";
 const Tile = ({ on, index, testIndex, dead }) => {
   let cords = useRef({});
 
-  const handleClick = (e) => {
+  const handleCheat = (e) => {
     if (cords.current[JSON.stringify([e.clientX, e.clientY])]) {
       cords.current[JSON.stringify([e.clientX, e.clientY])] += 1;
     } else {
       cords.current[JSON.stringify([e.clientX, e.clientY])] = 1;
     }
-    // cords.current.push([e.clientX, e.clientY]);
-    testIndex(index);
 
     for (let key in cords.current) {
       if (cords.current[key] / Object.keys(cords.current).length > 2) {
-        // alert("MOF niemand mag je");
       }
     }
+  };
+
+  const handleClick = (e) => {
+    testIndex(index);
+    handleCheat(e);
   };
 
   return (

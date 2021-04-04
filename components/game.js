@@ -81,9 +81,6 @@ const game = ({
 
   const testIndex = (index) => {
     if (dead) {
-      // console.log(Date.now() - deadDate);
-      // console.log(`Dead Date now: ${deadDate}`);
-
       setScore(0);
       setPercentage(100);
       setDead(false);
