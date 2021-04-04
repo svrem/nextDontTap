@@ -26,13 +26,12 @@ const game = ({
   };
   const speed = 250;
   const percentageReduction = 5;
-  const percentageIncrement = 3;
+  const percentageIncrement = 10;
   // Get this done motherfucker
   let deadDate = 0;
   const deadPause = 2.5;
   // ==========================
 
-  // const [dead, setDead] = useState(false);
   const [board, setBoard] = useState([
     0,
     0,
@@ -51,6 +50,10 @@ const game = ({
     0,
     0,
   ]);
+
+  useEffect(() => {
+    setBoard(randomBoard(3));
+  }, []);
 
   useEffect(() => {
     if (ready) {
