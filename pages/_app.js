@@ -5,6 +5,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6494444854881757"
+     crossorigin="anonymous"></script>
         <meta
           name="Description"
           content="Game about click speed. Get as many points as you can with out touching the wite tiles!"
